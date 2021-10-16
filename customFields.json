@@ -78,9 +78,9 @@
     "label": "Number of Heart Bomb",
     "type": "slider",
     "name": "",
-    "value": 100,
-    "max": 300,
+    "value": 50,
+    "max": 100,
     "min": 10,
-    "steps": 10
+    "steps": 2
   }
 }
