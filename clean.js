@@ -12,11 +12,17 @@ document.addEventListener('onEventReceived', function(obj) {
   // obj will contain information about the event
   console.log(obj.detail); // OBJ Logs
 
-  //smoothscroll animation
-  const smoothscroll = {smoothscroll};
+  const {
+    command,
+    from,
+    tags,
+    owner,
+    body,
+    subscriber,
+  } = obj.detail;
 
-  if (obj.detail.command === "PRIVMSG") { // Prevent animation for ping events - Curtis Geiger
-    if (previousFrom == obj.detail.from) {
+  if (command === "PRIVMSG") { // Prevent animation for ping events - Curtis Geiger
+    if (previousFrom == from) {
       const messages = document.getElementsByClassName('message');
       const parentMessage = messages[messages.length - 2];
       const childMessage = messages[messages.length - 1];
@@ -27,13 +33,12 @@ document.addEventListener('onEventReceived', function(obj) {
     }
 
     //smoothscroll
-    if (previousFrom != obj.detail.from && smoothscroll == true) {
+    if (previousFrom != from && {smoothscroll} == true) {
       $('#log>div').last().hide().slideToggle(600, "easeInOutQuart"); //New animation code
     }
+    previousFrom = from;
 
-    previousFrom = obj.detail.from;
-
-    function bomb(){
+    bomb = () => {
       // On event received - Heart animation
       let randomNumberBetween = (max, min) => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -51,18 +56,16 @@ document.addEventListener('onEventReceived', function(obj) {
 
       $('#custom_html').append('<span class="hearts' + ` hearts-${heartsId}` + ` ${heartsAni}"` + 'style="z-index: -1; position: absolute; bottom:' + bottom + '%; right:' + right + '%;"><img width="' + size + '"' + `src="${defaultImage}` + '"></img></span>');
       setTimeout(() => $(`.hearts-${heartsId}`).remove(), 3500);
-    }
+    };
 
     // These are the intermittent hearts or images you see when a message comes in!
     bomb();
 
     let triggerWord = "{trigger}";
     let bombCount = {bombCount};
-    if (obj.detail.tags.mod == "1" || obj.detail.owner == "1" || obj.detail.subscriber == "1" || obj.detail.tags.badges.includes("vip")) {
-      if (obj.detail.body.includes(triggerWord)) {
-        if (bombing) {
-          return;
-        }
+    if (tags.mod == "1" || owner == "1" || subscriber == "1" || tags.badges.includes("vip")) {
+      if (body.includes(triggerWord)) {
+        if (bombing) { return }
 
         bombing = true;
         setTimeout(() => { bombing = false }, 6969);
@@ -79,7 +82,7 @@ document.addEventListener('onEventReceived', function(obj) {
     }
   }
 
-  if (obj.detail.command === "CLEARCHAT") {
+  if (command === "CLEARCHAT") {
     document.getElementById('log').innerHTML = '';
   }
 });
