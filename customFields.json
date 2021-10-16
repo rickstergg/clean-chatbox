@@ -1,0 +1,48 @@
+{
+  "smoothscroll": {
+      "label": "Smoothscroll Animation?",
+      "type": "dropdown",
+      "options": {
+          "false": "Disable",
+          "true": "Enable"
+      },
+      "value": "true"
+  },
+  "custom-image": {
+      "label": "Replace heart with custom image?",
+      "type": "dropdown",
+      "options": {
+          "false": "Disable",
+          "true": "Enable"
+      },
+      "value": "false"
+  },
+  "custom-image-uploaded": {
+      "label": "― Custom image",
+      "type": "image-input",
+      "value": ""
+  },
+  "animation": {
+      "label": "Animation",
+      "type": "dropdown",
+      "options": {
+          "straight-ani": "Straight up",
+          "curve-ani": "Cubic bezier curve"
+      },
+      "value": "curve-ani"
+  },
+  "trigger": {
+      "label": "Command for Heart Bomb",
+      "type": "textfield",
+      "value": "!love"
+  },
+  "bombCount": {
+      "label": "Number of Heart Bomb",
+      "type": "slider",
+      "name": "",
+      "value": 100,
+      "max": 300,
+      "min": 10,
+      "steps": 10
+  }
+}
