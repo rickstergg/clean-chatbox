@@ -60,7 +60,7 @@ document.addEventListener('onEventReceived', function(obj) {
     const messageBody = obj.detail.body;
     let triggerWord = "{trigger}";
     let bombCount = {bombCount};
-    if (obj.detail.tags.mod == "1" || obj.detail.owner == "1" ){
+    if (obj.detail.tags.mod == "1" || obj.detail.owner == "1" || obj.detail.subscriber == "1" || obj.detail.tags.badges.includes("vip") ){
       if(messageBody.includes(triggerWord)){
         (function delayBomb(i) { //function to ensure multiple popup don't stack.
           setTimeout(function() {
