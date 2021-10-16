@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Actor');
+@import url('https://fonts.googleapis.com/css?family={font-chosen}');
 
 * {
   box-sizing: border-box;
@@ -11,7 +11,7 @@ html, body {
 }
 
 body {
-  font-family: Actor, 'JetBrains Mono', 'Helvetica Neue', sans-serif;
+  font-family: {font-chosen}, 'JetBrains Mono', 'Helvetica Neue', sans-serif;
   line-height: 1.5em;
 }
 
@@ -59,19 +59,19 @@ body {
   margin-bottom: -5px;
   padding-left: 8px;
   display: flex;
-  z-index: 1; /* cause position relative @ .message-box */
+  z-index: 1;
 }
 
 .name {
-  color: #ffb6c1;
+  color: {username-color};
   display: flex;
   margin-left: 4px;
   letter-spacing: 1px;
-  font-size: 24px;
+  font-size: {username-font-size}px;
 }
 
 .message-box {
-  border-left: 2px solid #ffffff;
+  border-left: 2px solid {left-border-color};
   border-radius: 0 0 0 8px;
   position: relative;
   z-index: -1;
@@ -79,12 +79,12 @@ body {
 
 .message {
   display: block;
-  color: #FFFFFF;
+  color: {message-color};
   letter-spacing: 0.9px;
   margin-left: 5px;
   padding: 6px 6px;
   word-wrap: break-word;
-  font-size: 20px;
+  font-size: {message-font-size}px;
   font-weight: 500;
 }
 
