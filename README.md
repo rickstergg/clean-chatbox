@@ -4,6 +4,8 @@ A copy-pasta custom HTML, CSS, JS, and Fields package for twitch streamers, part
 
 # Usage / Installation
 
+Note: I recommend doing these in the streamlabs website instead of the chatbox dialog box in the SLOBS / OBS Studio windows. Their website is more responsive and you may not be able to hit the save button on the custom fields.
+
 1. Go to Streamlabs, and navigate to the widgets. There should be a chat widget, click on it.
 2. Near the bottom, you'll see "Enable Custom HTML/CSS." Click Enable!
 3. For each of the tabs that show up underneath the radio buttons, copy and paste each of the files into the respective sections.
