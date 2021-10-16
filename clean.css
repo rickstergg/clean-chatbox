@@ -240,8 +240,16 @@ body {
     opacity: 0.8;
   }
 
+  50.0000% {
+    opacity: 0.5;
+  }
+
+  75.0000% {
+    opacity: 0.25;
+  }
+
   100.0000% {
-    transform: translate(0.0px, -250.0px);
+    transform: translate(0.0px, -350.0px);
     opacity: 0;
   }
 }
