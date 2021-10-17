@@ -31,8 +31,17 @@
     "min": 1,
     "steps": 1
   },
+  "usernameTwitchColors": {
+    "label": "Use default Twitch Username Colors?",
+    "type": "dropdown",
+    "options": {
+      "false": "Disable",
+      "true": "Enable"
+    },
+    "value": "false"
+  },
   "username-color": {
-    "label": "Username Color",
+    "label": "Username Color (instead of default)",
     "type": "colorpicker",
     "value": "#ffb6c1"
   },

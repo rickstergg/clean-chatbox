@@ -22,20 +22,13 @@ document.addEventListener('onEventReceived', function(obj) {
   } = obj.detail;
 
   if (command === "PRIVMSG") {
-    if (previousFrom == from) {
-      const messages = document.getElementsByClassName('message');
-      const parentMessage = messages[messages.length - 2];
-      const childMessage = messages[messages.length - 1];
-      parentMessage.innerHTML += '<br />' + childMessage.innerHTML;
+    const useDefaultUsernameColor = {usernameTwitchColors};
 
-      const wrapper = document.getElementsByClassName('wrapper');
-      wrapper[wrapper.length - 1].remove();
+    if (useDefaultUsernameColor) {
+      const names = document.getElementsByClassName('name');
+      const latestNameElement = names[names.length - 1];
+      latestNameElement.style.color = tags?.color;
     }
-
-    if (previousFrom != from && {smoothscroll} == true) {
-      $('#log>div').last().hide().slideToggle(600, "easeInOutQuart"); //New animation code
-    }
-    previousFrom = from;
 
     bomb = () => {
       // On event received - Heart animation
@@ -60,6 +53,21 @@ document.addEventListener('onEventReceived', function(obj) {
     // These are the intermittent hearts or images you see when a message comes in!
     bomb();
 
+    if (previousFrom == from) {
+      const messages = document.getElementsByClassName('message');
+      const parentMessage = messages[messages.length - 2];
+      const childMessage = messages[messages.length - 1];
+      parentMessage.innerHTML += '<br />' + childMessage.innerHTML;
+
+      const wrapper = document.getElementsByClassName('wrapper');
+      wrapper[wrapper.length - 1].remove();
+    }
+
+    if (previousFrom != from && {smoothscroll} == true) {
+      $('#log>div').last().hide().slideToggle(600, "easeInOutQuart"); //New animation code
+    }
+    previousFrom = from;
+
     let triggerWord = "{trigger}";
     let bombCount = {bombCount};
     if (tags?.mod == "1" || owner || subscriber == "1" || (tags?.badges?.includes("vip"))) {
@@ -81,7 +89,7 @@ document.addEventListener('onEventReceived', function(obj) {
     }
   }
 
-  // Limit message shown
+  // Limit messages shown
   const limitEnable = {limit-enable};
   const messageLimit = {message-limit};
   let messageParent = document.querySelector('.sl__chat__layout');
