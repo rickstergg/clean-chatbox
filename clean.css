@@ -38,6 +38,15 @@ body {
   -webkit-animation: fadeOut 0.5s ease {message_hide_delay} forwards;
 }
 
+.wrapper {
+  background: #333333BB;
+
+  /* This is here in case the browser doesn't support 8-digit hex */
+  /* background: rgba(175, 175, 175, 0.6);*/
+  padding: 10px;
+  border-radius: 10px;
+}
+
 .meta  {
   display: flex;
 }

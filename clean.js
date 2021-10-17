@@ -63,7 +63,7 @@ document.addEventListener('onEventReceived', function(obj) {
 
     let triggerWord = "{trigger}";
     let bombCount = {bombCount};
-    if (tags.mod == "1" || owner == "1" || subscriber == "1" || tags.badges.includes("vip")) {
+    if (tags?.mod == "1" || owner || subscriber == "1" || (tags?.badges?.includes("vip"))) {
       if (body.includes(triggerWord)) {
         if (bombing) { return }
 
