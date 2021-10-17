@@ -48,11 +48,11 @@ body {
 }
 
 .badge {
-    display: flex;
-    position: relative;
-    height: fit-content;
-  	margin: 2px;
-    align-items: center;
+  display: flex;
+  position: relative;
+  height: fit-content;
+  margin: 2px;
+  align-items: center;
 }
 
 .username-box {
@@ -103,7 +103,7 @@ body {
 }
 
 .hearts {
-    position: absolute;
+  position: absolute;
 }
 
 .curve-ani {
