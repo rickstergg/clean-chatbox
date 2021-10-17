@@ -82,13 +82,13 @@ document.addEventListener('onEventReceived', function(obj) {
   }
 
   // Limit message shown
-  const limitEnable = true; // {limit-enable};
-  const messageLimit = 3; // {msg-limit};
-  let msgParent = document.querySelector('.sl__chat__layout');
-  let numMessages = msgParent.children.length;
+  const limitEnable = {limit-enable};
+  const messageLimit = {message-limit};
+  let messageParent = document.querySelector('.sl__chat__layout');
+  let numMessages = messageParent.children.length;
 
   if (limitEnable && numMessages > messageLimit) {
-    const nodesToDelete = [...msgParent.children].slice(0, numMessages - messageLimit);
+    const nodesToDelete = [...messageParent.children].slice(0, numMessages - messageLimit);
     nodesToDelete.forEach(node => {
       if (!node.classList.contains('fadeOut')) {
         node.classList.add('fadeOut');

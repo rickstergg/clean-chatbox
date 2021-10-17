@@ -13,6 +13,24 @@
     },
     "value": "true"
   },
+  "limit-enable": {
+    "label": "Limit Messages?",
+    "type": "dropdown",
+    "options": {
+      "false": "Disable",
+      "true": "Enable"
+    },
+    "value": "true"
+  },
+  "message-limit": {
+    "label": "Number of Messages Limited to ..?",
+    "type": "slider",
+    "name": "",
+    "value": 10,
+    "max": 100,
+    "min": 1,
+    "steps": 1
+  },
   "username-color": {
     "label": "Username Color",
     "type": "colorpicker",
