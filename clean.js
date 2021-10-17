@@ -81,6 +81,22 @@ document.addEventListener('onEventReceived', function(obj) {
     }
   }
 
+  // Limit message shown
+  const limitEnable = true; // {limit-enable};
+  const messageLimit = 3; // {msg-limit};
+  let msgParent = document.querySelector('.sl__chat__layout');
+  let numMessages = msgParent.children.length;
+
+  if (limitEnable && numMessages > messageLimit) {
+    const nodesToDelete = [...msgParent.children].slice(0, numMessages - messageLimit);
+    nodesToDelete.forEach(node => {
+      if (!node.classList.contains('fadeOut')) {
+        node.classList.add('fadeOut');
+        setTimeout(() => node.remove(), 1000);
+      }
+    });
+  }
+
   if (command === "CLEARCHAT") {
     document.getElementById('log').innerHTML = '';
   }

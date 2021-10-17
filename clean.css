@@ -115,6 +115,12 @@ body {
   position: absolute;
 }
 
+.fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.25s, opacity 0.25s ease-out;
+}
+
 .curve-ani {
   animation: 3s linear 0s 1 normal forwards running curve;
   -webkit-animation: 3s linear 0s 1 normal forwards running curve;
