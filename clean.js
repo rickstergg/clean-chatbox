@@ -21,7 +21,7 @@ document.addEventListener('onEventReceived', function(obj) {
     subscriber,
   } = obj.detail;
 
-  if (command === "PRIVMSG") { // Prevent animation for ping events - Curtis Geiger
+  if (command === "PRIVMSG") {
     if (previousFrom == from) {
       const messages = document.getElementsByClassName('message');
       const parentMessage = messages[messages.length - 2];
@@ -32,7 +32,6 @@ document.addEventListener('onEventReceived', function(obj) {
       wrapper[wrapper.length - 1].remove();
     }
 
-    //smoothscroll
     if (previousFrom != from && {smoothscroll} == true) {
       $('#log>div').last().hide().slideToggle(600, "easeInOutQuart"); //New animation code
     }
