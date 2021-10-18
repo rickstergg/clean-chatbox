@@ -27,7 +27,7 @@ document.addEventListener('onEventReceived', function(obj) {
     if (useDefaultUsernameColor) {
       const names = document.getElementsByClassName('name');
       const latestNameElement = names[names.length - 1];
-      latestNameElement.style.color = tags?.color;
+      latestNameElement.style.color = tags.color;
     }
 
     bomb = () => {
@@ -70,7 +70,7 @@ document.addEventListener('onEventReceived', function(obj) {
 
     let triggerWord = "{trigger}";
     let bombCount = {bombCount};
-    if (tags?.mod == "1" || owner || subscriber == "1" || (tags?.badges?.includes("vip"))) {
+    if (tags.mod == "1" || owner || subscriber == "1" || (tags.badges && tags.badges.includes("vip"))) {
       if (body.includes(triggerWord)) {
         if (bombing) { return }
 
