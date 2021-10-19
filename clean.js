@@ -9,8 +9,7 @@ let previousFrom = null;
 let bombing = false;
 
 document.addEventListener('onEventReceived', function(obj) {
-  // obj will contain information about the event
-  console.log(obj.detail); // OBJ Logs
+  console.log(obj.detail);
 
   const {
     command,
@@ -19,6 +18,7 @@ document.addEventListener('onEventReceived', function(obj) {
     owner,
     body,
     subscriber,
+    messageId,
   } = obj.detail;
 
   if (command === "PRIVMSG") {
@@ -31,7 +31,6 @@ document.addEventListener('onEventReceived', function(obj) {
     }
 
     bomb = () => {
-      // On event received - Heart animation
       let randomNumberBetween = (max, min) => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       };
@@ -50,21 +49,31 @@ document.addEventListener('onEventReceived', function(obj) {
       setTimeout(() => $(`.hearts-${heartsId}`).remove(), 3500);
     };
 
-    // These are the intermittent hearts or images you see when a message comes in!
+    // 1 bomb per message!
     bomb();
 
-    if (previousFrom == from) {
+    const wrapper = document.getElementsByClassName('wrapper');
+
+    if (wrapper.length > 1 && previousFrom == from) {
       const messages = document.getElementsByClassName('message');
       const parentMessage = messages[messages.length - 2];
       const childMessage = messages[messages.length - 1];
       parentMessage.innerHTML += '<br />' + childMessage.innerHTML;
-
-      const wrapper = document.getElementsByClassName('wrapper');
       wrapper[wrapper.length - 1].remove();
+    } else {
+      const messageHideDelay = {messageHideDelay};
+      setTimeout(() => {
+        node = document.querySelectorAll(`[data-id="${messageId}"]`)[0];
+        node.classList.add('fadeOut');
+        setTimeout(() => {
+            node = document.querySelectorAll(`[data-id="${messageId}"]`)[0];
+            node.remove();
+        }, 750);
+      }, messageHideDelay * 1000);
     }
 
     if (previousFrom != from && {smoothscroll} == true) {
-      $('#log>div').last().hide().slideToggle(600, "easeInOutQuart"); //New animation code
+      $('#log>div').last().hide().slideToggle(600, "easeInOutQuart");
     }
     previousFrom = from;
 
@@ -87,22 +96,6 @@ document.addEventListener('onEventReceived', function(obj) {
         delayBomb(bombCount);
       }
     }
-  }
-
-  // Limit messages shown
-  const limitEnable = {limit-enable};
-  const messageLimit = {message-limit};
-  let messageParent = document.querySelector('.sl__chat__layout');
-  let numMessages = messageParent.children.length;
-
-  if (limitEnable && numMessages > messageLimit) {
-    const nodesToDelete = [...messageParent.children].slice(0, numMessages - messageLimit);
-    nodesToDelete.forEach(node => {
-      if (!node.classList.contains('fadeOut')) {
-        node.classList.add('fadeOut');
-        setTimeout(() => node.remove(), 1000);
-      }
-    });
   }
 
   if (command === "CLEARCHAT") {

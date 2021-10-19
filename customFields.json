@@ -13,20 +13,11 @@
     },
     "value": "true"
   },
-  "limit-enable": {
-    "label": "Limit Messages?",
-    "type": "dropdown",
-    "options": {
-      "false": "Disable",
-      "true": "Enable"
-    },
-    "value": "true"
-  },
-  "message-limit": {
-    "label": "Number of Messages Limited to ..?",
+  "messageHideDelay": {
+    "label": "Seconds Before Messages Are Deleted",
     "type": "slider",
     "name": "",
-    "value": 10,
+    "value": 15,
     "max": 100,
     "min": 1,
     "steps": 1
