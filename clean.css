@@ -61,7 +61,6 @@ body {
 }
 
 .username-box {
-  margin-bottom: -5px;
   padding-left: 8px;
   display: flex;
   z-index: 1;
